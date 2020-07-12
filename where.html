@@ -1,0 +1,54 @@
+
+<html>
+    <head>
+      <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+      <meta charset="utf-8">
+      <title>Covid-19 : Karnataka</title>
+      <link href="http://google-developers.appspot.com/maps/documentation/javascript/examples/default.css" rel="stylesheet">
+      <script src="http://maps.googleapis.com/maps/api/js"></script>
+  
+      <script src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer_compiled.js"></script>
+      <script src="where.js"></script>
+      <script>
+  
+        function initialize() {
+          var myLatlng = new google.maps.LatLng(37.39361,-122.099263)
+          var mapOptions = {
+            zoom: 2.5,
+            center: myLatlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+          }
+          var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+  
+          i = 0;
+          var markers = [];
+          for ( pos in myData ) {
+              i = i + 1;
+              var row = myData[pos];
+              window.console && console.log(row);
+              var newLatlng = new google.maps.LatLng(row[0], row[1]);
+              var marker = new google.maps.Marker({
+                  position: newLatlng,
+                  map: map,
+                  title: row[2]
+              });
+              markers.push(marker);
+          }
+        }
+      </script>
+      <style>
+          body{
+              background-color : black;
+              color:whitesmoke;
+              font-size: 30px;
+          }
+      </style>
+
+    </head>
+    <body onload="initialize()">
+  <div id="map_canvas" style="height: 600px"></div>
+
+  <p><b> As on :- 11 July 2020</b></p>
+  </body>
+  </html>
+  

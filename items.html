@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Items List</title>
+    <link href="index.html">
+    <style>
+        *{font-family: cursive;}
+        nav{
+            margin-top: 50px; 
+            height:40px; 
+        }
+        .nav_div li{
+            margin-left: 30px;
+            margin-top: 10px;
+        }
+        a{
+            color: black; 
+            font-size: 20px;
+            text-decoration: none;
+        }
+        .nav_div ul{
+            list-style: none;
+            display: flex;
+            margin-left: 1050px;
+            margin-top: 20px;
+        }
+        .nav_div li:hover{
+            height: 30px;
+            width: 100px;
+            text-align: center;
+            text-decoration: underline;
+            border: .5px solid black;
+            border-radius: 20px;
+            background-color: rgb(235, 235, 235);
+        }
+        body{
+            background-image: url("2.jpg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+        .ftbl{
+            text-align: center;
+            margin-top: 50px;
+            margin-left: 570px;
+            font-size: 27px;
+        }
+        .ip{
+            height: 20px;
+            width: 120px;
+            font-size: 15px;
+        }
+        #submit{
+            height: 40px;
+            width: 100px;
+            font-size: 20px;
+        }
+        #h1{
+            margin-left: 750px;
+            font-size: 55px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: rgb(124, 29, 124);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav_div">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="where.html">Covid</a></li>
+                <li onclick="bills()"><a href="#">Bill</a></li>
+                <li><a href="help.html">Help</a></li>
+            </ul>
+        </div>
+    </nav>
+    <h1 id="h1">" Shopping is my Cardio "</h1>
+
+    <form class="ftbl">
+        <table>
+            <p style="color: black;">****************************</p>
+            <tr> Item : <input class="ip" type="text" name="item" id="i" placeholder="product name" required autofocus> <br> <br> </tr>    
+            <tr> Quantity : <input class="ip" type="tel" name="quantity" id="q" placeholder="kg/ltr"required > <br> <br> </tr>            
+            <tr> Size : <input class="ip" type="number" name="size" placeholder="1" id="s" required > <br> <br> </tr> 
+            <button type="button" id="submit" onclick="sub()">Submit</button>        
+            <p style="color: black;">****************************</p>
+        </table>
+    </form>
+
+    <script>
+        var items = new Array();
+        var quantity = new Array();
+        var size = new Array();
+        var result = new Array();
+        var a,b,c,total;
+        var i,j;
+        var sum=0;
+        function sub()
+        {
+            a=document.getElementById("i").value;
+            b=document.getElementById("q").value;
+            c=document.getElementById("s").value;
+            if(a=="Rice" || a=="rice") {total=20*b*c; add();}
+            else if(a=="Wheat" || a=="wheat") {total=40*b*c; add();}
+            else if(a=="Sugar" || a=="Sugar") {total=35*b*c; add();}
+            else if(a=="Salt" || a=="salt") {total=16*b*c; add();}
+            else if(a=="Maida" || a=="maida") {total=22*b*c; add();}
+            else if(a=="Cornflour" || a=="cornflour") {total=45*b*c; add();}
+            else if(a=="Oil" || a=="oil") {total=90*b*c; add();}
+            else if(a=="Butter" || a=="butter") {total=25*b*c; add();}
+            else if(a=="Milk" || a=="milk") {total=22*b*c; add();}
+            else if(a=="Yogurt" || a=="yogurt") {total=14*b*c; add();}
+            else if(a=="Garlic" || a=="Garlic") {total=10*b*c; add();}
+            else if(a=="Pepper" || a=="pepper") {total=35*b*c; add();}
+            else if(a=="Honey" || a=="honey") {total=120*b*c; add();}
+            else if(a=="Vinegar" || a=="vinegar") {total=45*b*c; add();}
+            else if(a=="Pickel" || a=="pickel") {total=60*b*c; add();}
+            else if(a=="Almond" || a=="almond") {total=150*b*c; add();}
+            else if(a=="Cashew" || a=="cashew") {total=200*b*c; add();}
+            else if(a=="Grapes" || a=="grapes") {total=100*b*c; add();}
+            else if(a=="Onion" || a=="onion") {total=40*b*c; add();}
+            else if(a=="Tomato" || a=="tomato") {total=30*b*c; add();}
+            else if(a=="Potato" || a=="Potato") {total=45*b*c; add();}
+            else if(a=="Carrot" || a=="carrot") {total=32*b*c; add();}
+            else{document.writeln("<h1> Item Not Available :-( </h1>");}
+
+        }
+        function add()
+        {
+            items=items.concat(a);
+            quantity=quantity.concat(b);
+            size=size.concat(c);
+            result=result.concat(total);
+        }
+        function bills()
+        {
+            document.writeln("<pre>");
+            document.writeln("--------------------------------------------");
+            document.write("<h2> --- RAMU KIRANA STORE ---  </h2>"+"<h3>&nbsp&nbsp #405, 6th main, Ankola, Karnataka </h3>" );
+            document.writeln("--------------------------------------------");
+            document.writeln("<h4>No. &nbsp Item &nbsp Quantity &nbsp Size &nbsp Amount </h4>");
+            for(i=0;i<items.length;i++)
+            {
+                document.writeln((i+1)+")&nbsp&nbsp&nbsp"+items[i]+" &nbsp&nbsp&nbsp "+quantity[i]+" &nbsp&nbsp&nbsp&nbsp&nbsp "+size[i]+" &nbsp&nbsp&nbsp&nbsp&nbsp "+result[i]+"<br/>");
+                sum=sum+result[i];
+            }
+            document.writeln("<h3> &nbsp Your total cost is  "+sum+"/- </h3>");
+            document.writeln("<h3> &nbsp THANK YOU..! Visit Again :-) </h3>");
+            document.writeln("--------------------------------------------");
+            document.writeln("</pre>");
+        } 
+    </script>
+</body>
+</html>
