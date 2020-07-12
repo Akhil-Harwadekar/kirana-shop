@@ -8,35 +8,36 @@
       <script src="http://maps.googleapis.com/maps/api/js"></script>
   
       <script src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer_compiled.js"></script>
-      <script src="where.js"></script>
-      <script>
+      <script src="where.js"></script>                                              //link to include the datasets for the map
+      <script>                                                                      
   
-        function initialize() {
-          var myLatlng = new google.maps.LatLng(37.39361,-122.099263)
-          var mapOptions = {
-            zoom: 2.5,
-            center: myLatlng,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-          }
-          var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
-  
-          i = 0;
-          var markers = [];
-          for ( pos in myData ) {
-              i = i + 1;
-              var row = myData[pos];
-              window.console && console.log(row);
-              var newLatlng = new google.maps.LatLng(row[0], row[1]);
-              var marker = new google.maps.Marker({
-                  position: newLatlng,
-                  map: map,
-                  title: row[2]
-              });
-              markers.push(marker);
-          }
+        function initialize()                                                       //function that starts the map
+          {                                                         
+              var myLatlng = new google.maps.LatLng(37.39361,-122.099263)           
+              var mapOptions = {
+                zoom: 2.5,                                                              //attributes that map contains
+                center: myLatlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+              }
+              var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+              i = 0;
+              var markers = [];
+              for ( pos in myData )                                                 //for loop that takes the data from JS file
+              {
+                  i = i + 1;
+                  var row = myData[pos];
+                  window.console && console.log(row);
+                  var newLatlng = new google.maps.LatLng(row[0], row[1]);
+                  var marker = new google.maps.Marker({
+                      position: newLatlng,
+                      map: map,
+                      title: row[2]
+                  });
+                  markers.push(marker);                                                 //pusing the marker on map
+              }
         }
       </script>
-      <style>
+      <style>                                                                           //style for the page
           body{
               background-color : black;
               color:whitesmoke;
@@ -46,9 +47,9 @@
 
     </head>
     <body onload="initialize()">
-  <div id="map_canvas" style="height: 600px"></div>
+  <div id="map_canvas" style="height: 600px"></div>                                     //to display the map of height 600px
 
-  <p><b> As on :- 11 July 2020</b></p>
+  <p><b> As on :- 11 July 2020</b></p>                                                  //paragraph tag to show the date
   </body>
   </html>
   
