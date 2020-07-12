@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Items List</title>
     <link href="index.html">
-    <style>
+    <style>                                                     //styles for the page
         *{font-family: cursive;}
         nav{
             margin-top: 50px; 
@@ -65,9 +65,9 @@
     </style>
 </head>
 <body>
-    <nav>
+    <nav>                                                                           //nav bar
         <div class="nav_div">
-            <ul>
+            <ul>                                                                    //list of operations thst you want to perform
                 <li><a href="index.html">Home</a></li>
                 <li><a href="where.html">Covid</a></li>
                 <li onclick="bills()"><a href="#">Bill</a></li>
@@ -75,9 +75,9 @@
             </ul>
         </div>
     </nav>
-    <h1 id="h1">" Shopping is my Cardio "</h1>
+    <h1 id="h1">" Shopping is my Cardio "</h1>                                         //section heading
 
-    <form class="ftbl">
+    <form class="ftbl">                                                                 //table
         <table>
             <p style="color: black;">****************************</p>
             <tr> Item : <input class="ip" type="text" name="item" id="i" placeholder="product name" required autofocus> <br> <br> </tr>    
@@ -88,21 +88,21 @@
         </table>
     </form>
 
-    <script>
-        var items = new Array();
+    <script>                                                                        //beginning of JavaScript
+        var items = new Array();                                                     //variable declarations 
         var quantity = new Array();
         var size = new Array();
         var result = new Array();
         var a,b,c,total;
         var i,j;
         var sum=0;
-        function sub()
+        function sub()                                                                  //onclick of submit button; function called sub() invokes
         {
-            a=document.getElementById("i").value;
-            b=document.getElementById("q").value;
-            c=document.getElementById("s").value;
+            a=document.getElementById("i").value;                                          //getting the item name from the input
+            b=document.getElementById("q").value;                                          //getting the quantity from the input
+            c=document.getElementById("s").value;                                          //getting the size from the input
             if(a=="Rice" || a=="rice") {total=20*b*c; add();}
-            else if(a=="Wheat" || a=="wheat") {total=40*b*c; add();}
+            else if(a=="Wheat" || a=="wheat") {total=40*b*c; add();}                    
             else if(a=="Sugar" || a=="Sugar") {total=35*b*c; add();}
             else if(a=="Salt" || a=="salt") {total=16*b*c; add();}
             else if(a=="Maida" || a=="maida") {total=22*b*c; add();}
@@ -110,8 +110,8 @@
             else if(a=="Oil" || a=="oil") {total=90*b*c; add();}
             else if(a=="Butter" || a=="butter") {total=25*b*c; add();}
             else if(a=="Milk" || a=="milk") {total=22*b*c; add();}
-            else if(a=="Yogurt" || a=="yogurt") {total=14*b*c; add();}
-            else if(a=="Garlic" || a=="Garlic") {total=10*b*c; add();}
+            else if(a=="Yogurt" || a=="yogurt") {total=14*b*c; add();}                       //acts like items tht are available in the shop,
+            else if(a=="Garlic" || a=="Garlic") {total=10*b*c; add();}                       // we can use database instead
             else if(a=="Pepper" || a=="pepper") {total=35*b*c; add();}
             else if(a=="Honey" || a=="honey") {total=120*b*c; add();}
             else if(a=="Vinegar" || a=="vinegar") {total=45*b*c; add();}
@@ -123,33 +123,33 @@
             else if(a=="Tomato" || a=="tomato") {total=30*b*c; add();}
             else if(a=="Potato" || a=="Potato") {total=45*b*c; add();}
             else if(a=="Carrot" || a=="carrot") {total=32*b*c; add();}
-            else{document.writeln("<h1> Item Not Available :-( </h1>");}
+            else{document.writeln("<h1> Item Not Available :-( </h1>");}                    //if the item is not available in the shop
 
         }
-        function add()
-        {
-            items=items.concat(a);
-            quantity=quantity.concat(b);
-            size=size.concat(c);
-            result=result.concat(total);
+        function add()                                                                  //function that takes multiple items from the input
+        {   
+            items=items.concat(a);                                                      //concats the item to item array
+            quantity=quantity.concat(b);                                                //concats the quantity to quantity array
+            size=size.concat(c);                                                        //concats the size to size array
+            result=result.concat(total);                                                //concats the total amount to result array
         }
-        function bills()
+        function bills()                                                                //function to print the bill
         {
             document.writeln("<pre>");
-            document.writeln("--------------------------------------------");
-            document.write("<h2> --- RAMU KIRANA STORE ---  </h2>"+"<h3>&nbsp&nbsp #405, 6th main, Ankola, Karnataka </h3>" );
+            document.writeln("--------------------------------------------"); 
+            document.write("<h2> --- RAMU KIRANA STORE ---  </h2>"+"<h3>&nbsp&nbsp #405, 6th main, Ankola, Karnataka </h3>" );         //shop name along with the address
             document.writeln("--------------------------------------------");
             document.writeln("<h4>No. &nbsp Item &nbsp Quantity &nbsp Size &nbsp Amount </h4>");
-            for(i=0;i<items.length;i++)
+            for(i=0;i<items.length;i++)                                                    //for loop to print all the items that are ordered along with the amount
             {
                 document.writeln((i+1)+")&nbsp&nbsp&nbsp"+items[i]+" &nbsp&nbsp&nbsp "+quantity[i]+" &nbsp&nbsp&nbsp&nbsp&nbsp "+size[i]+" &nbsp&nbsp&nbsp&nbsp&nbsp "+result[i]+"<br/>");
-                sum=sum+result[i];
+                sum=sum+result[i];                                                          //to calculate the total cost of all the items that is being ordered
             }
-            document.writeln("<h3> &nbsp Your total cost is  "+sum+"/- </h3>");
+            document.writeln("<h3> &nbsp Your total cost is  "+sum+"/- </h3>");             //display the total cost
             document.writeln("<h3> &nbsp THANK YOU..! Visit Again :-) </h3>");
             document.writeln("--------------------------------------------");
             document.writeln("</pre>");
         } 
-    </script>
+    </script>                                                                           //end of JavaScript tag
 </body>
 </html>
