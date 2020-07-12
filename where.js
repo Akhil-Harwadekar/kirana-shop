@@ -1,4 +1,4 @@
-myData = [
+myData = [                                                                                                
 [12.9426914,77.5053145, 'Bangalore University Rd, Bengaluru, Karnataka, India'],
 [16.1670633,75.6237993, 'Bagalkot, Karnataka,India'],
 [15.1357664,76.8715732, 'Bellary , Karnataka,India'],
@@ -30,4 +30,4 @@ myData = [
 [13.9963394,74.5047258, 'Uttara Kannada , Karnataka,India'],
 [16.8297894,75.6474968, 'Vijayapura , Karnataka,India'],
 [16.5671704,75.7637536, 'Yadgir , Karnataka,India']
-];
+];                                                                                        //contains the places position along with the name
